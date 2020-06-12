@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow.compat.v1 as tf
 import gpt_2_simple as gpt2
 from modules import download_model
+from os.path import exists
 
 import flask
 from flask_cors import CORS
@@ -18,7 +19,8 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 def main():
 
-    #load_model()
+    if not exists('./models'):
+        load_model()
 
     while True:
         try:
@@ -44,6 +46,7 @@ def main():
             continue
 
         break
+
 
     return "{\"response\": \"" + text + "\"}"
 

@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import styled from "styled-components";
 //import Button from 'react-bootstrap/Button';
 //import '../nlg/chatbot'
-import { translator } from 'python-js';
 
 const theme = {
    blue: {
@@ -49,7 +48,6 @@ Button.defaultProps = {
  };
 
  function callGpt() {
-   let code = translator.to_javascript( "print('Hello')" );
    alert(code);
    console.log(code);
  }
@@ -58,25 +56,19 @@ function Scriptbot() {
 
   return (
     <div>
-       <div className="container-fluid">
-          <div className="card">
-             <div className="card-body container-fluid">
-                <div className="row">
-                   <div className="col-md-12">
-                      <form>
-   
-                          <div className="form-group">
-                              <label htmlFor="headline">
-                              Script
-                              </label>
-                              <textarea rows="6" input type="text" className="form-control" id="headline" />
-                          </div>
-                          <div><Button onClick={callGpt}>Button</Button></div>
-                      </form>
-                   </div>
-                </div>
-             </div>
-          </div>
+        <div className="row">
+            <div className="col-md-12">
+              <form>
+
+                  <div className="form-group">
+                      <label htmlFor="headline">
+                      Script
+                      </label>
+                      <textarea rows="6" input type="text" className="form-control" id="headline" />
+                  </div>
+                  <div><Button onClick={callGpt}>Button</Button></div>
+              </form>
+            </div>
           <br/>
        </div>
        <ToastContainer />
