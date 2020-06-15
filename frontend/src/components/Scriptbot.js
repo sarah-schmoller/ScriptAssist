@@ -9,6 +9,7 @@ import React, {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from "styled-components";
+import axios from "axios";
 //import Button from 'react-bootstrap/Button';
 //import '../nlg/chatbot'
 
@@ -47,9 +48,8 @@ Button.defaultProps = {
    theme: "blue"
  };
 
- function callGpt() {
-   alert(code);
-   console.log(code);
+ async function callGpt() {
+  await axios.get()
  }
 
 function Scriptbot() {
