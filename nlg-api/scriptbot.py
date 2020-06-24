@@ -1,16 +1,21 @@
 import json
-import string
 import numpy as np
 import tensorflow.compat.v1 as tf
 import gpt_2_simple as gpt2
 from modules import download_model
-from os.path import exists
+import os.path
+from configparser import ConfigParser
 
 import flask
 from flask_cors import CORS
 
+folder_path = os.path.dirname(os.path.abspath(__file__))
+
+config = ConfigParser()
+config.read(os.path.join(folder_path, 'config.ini'))
+
 app = flask.Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = config.get('main', 'secret_key')
 
 CORS(app)
 app.config["DEBUG"] = True
@@ -18,12 +23,9 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['POST'])
 def main():
-    print(flask.request.json)
     style = flask.request.json["style"];
     previous = flask.request.json["context"];
-    print(style)
-    print(previous)
-    if not exists('./models'):
+    if not os.path.exists('./models'):
         load_model()
 
     while True:
@@ -50,7 +52,6 @@ def main():
             continue
 
         break
-
 
     return "{\"response\": \"" + text + "\"}"
 
@@ -114,8 +115,6 @@ def generate_text(style, previous, encoder, hparams, session, tf_sample, saver, 
 
     context_str = str(open("contexts/" + style + ".txt", "r").read())
     context_str = context_str + '\n' + previous
-    print("context")
-    print(context_str)
     context_tokens = encoder.encode(context_str)
     index = 0
     sample_num = 1
@@ -132,7 +131,6 @@ def generate_text(style, previous, encoder, hparams, session, tf_sample, saver, 
 
     text = text.partition('\n')[0].strip()
 
-    print(text)
     return text
 
 
