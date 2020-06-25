@@ -20,7 +20,6 @@ app.secret_key = config.get('main', 'secret_key')
 CORS(app)
 app.config["DEBUG"] = True
 
-
 @app.route('/', methods=['POST'])
 def main():
     style = flask.request.json["style"];

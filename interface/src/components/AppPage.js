@@ -3,8 +3,7 @@ import React, {
 } from 'react';
 
 //import { Link } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
-import styled from "styled-components";
+import '../styles/appPageStyles.css';
 import axios from "axios";
 //import { useNavigate } from 'react-router-dom';
 //import '../nlg/chatbot'
@@ -18,29 +17,6 @@ const theme = {
      default: "#e91e63",
      hover: "#ad1457"
    }
- };
-
-const Button = styled.button`
-  background-color: ${(props) => theme[props.theme].default};
-  color: white;
-  padding: 5px 15px;
-  border-radius: 0px;
-  outline: 0px;
-  margin: 10px 0px;
-  cursor: pointer;
-  box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
-  &:hover {
-    background-color: ${(props) => theme[props.theme].hover};
-  }
-  &:disabled {
-    cursor: default;
-    opacity: 0.7;
-  }
-`;
-
-Button.defaultProps = {
-   theme: "blue"
  };
 
 
@@ -139,6 +115,7 @@ const text2 = {
   //'width': '100%',
   
   //'float': 'left',
+  color: '#5A5A5A',
   position: 'absolute'
 }
 
@@ -218,14 +195,6 @@ const textDiv = {
       opacity: 0
     }
   `*/
-  const back = {
-    height: '100vh',
-    width: '100vw',
-    'background-color': '#0E012A',
-    'text-align':'center'
-    //'min-height': '100%',
-    //'min-width': '100%'
-  }
 
   const vl = {
     borderRight:'1px solid gray', 
@@ -495,20 +464,21 @@ const textDiv = {
 
   //const navigate = useNavigate();
   return (
-    <body style={back}>
+    <body id='pageBody'>
 
-      <div style={container}>
-        <div id='header'>
+      <div id='widgetContainer' style={container}>
+
+        <div id='widgetHeader'>
           <div style={title}>ScriptAssist</div>
         </div>
 
-        <div id='sidebar' style={sidebar}>
-          <div id='border' style={sidebarBorder}>
+        <div id='widgetSidebar' style={sidebar}>
+          <div id='divider' style={sidebarBorder}>
           </div>
-          <div id='instruction' style={text}>
-            <text>Choose a dialog style.</text>
-            <div id='dropdown' style={selectDiv}>
-              <select id='dropdown15' style={select}>
+          <div class='instructions' style={text}>
+            <text id='styleSelectorText'>Choose a dialog style.</text>
+            <div id='styleSelectorDropdownDiv' style={selectDiv}>
+              <select id='styleSelectorDropdown' style={select}>
                 <option selected>Shakespeare</option>
                 <option>Bronte</option>
                 <option>Fitzgerald</option>
@@ -517,24 +487,24 @@ const textDiv = {
               </select>
             </div>
           </div>
-          <div id='instruction2' style={text2}>
-            <text>Download your script.</text>
-            <form><button style={selectDiv2}>Download TXT</button></form>
+          <div class='instructions' style={text2}>
+            <text id='scriptDownloadText'>Download your script.</text>
+            <form id='scriptDownloadButton'><button style={selectDiv2}>Download TXT</button></form>
           </div>
         </div>
 
-        <div id='body' style={div2}>
-            <table id='table' style={instructions2}>
-              <tr style={row}> 
-                <td style={row}>
-                  <input style={textareaCharacter} defaultValue="Character 1:"></input>
-                  <textarea style={dialogBoxInput} placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
+        <div id='widgetBody' style={div2}>
+            <table id='dialogTurnsTable' style={instructions2}>
+              <tr class='dialogTurnRow' style={row}> 
+                <td class='dialogTurnColumn' style={row}>
+                  <input class='dialogTurnInput' style={textareaCharacter} defaultValue="Character 1:"></input>
+                  <textarea class='dialogTurnTextArea' style={dialogBoxInput} placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
                 </td>
               </tr>
             </table>
-            <div style={buttonDiv}>
-                <button style={buttonStyle} ><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
-                <button style={buttonStyle} onClick={() => generateResponse()}><span>Auto</span></button>
+            <div id='widgetButtonsDiv' style={buttonDiv}>
+                <button id='addTurnButton' style={buttonStyle} ><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
+                <button id='autoGenButton' style={buttonStyle} onClick={() => generateResponse()}><span>Auto</span></button>
               </div>
           </div>
 
