@@ -6,3 +6,57 @@
   background-color: #0E012A;
   text-align: center;
 }
+
+#widgetContainer {
+  width: 1000px;
+  height: 600px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  margin-top: min(13vh);
+  background: white;
+  float: left;
+  border-radius: 20px;
+  position: absolute;
+  overflow: hidden
+}
+
+/* Widget Header */
+
+#widgetHeader {
+  padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #0E012A;
+  font-size: 26px;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #ECEAF0 , white);
+  width: 100%;
+  z-index: 6;
+}
+
+/* Widget Sidebar */
+
+#widgetSidebar {
+  width: 22%;
+  background-color: white;
+  height: 100%;
+  position: absolute;
+  min-width: 200px;
+  z-index: 1;
+}
+
+#divider {
+  border-right: 1.5px solid #E1DEE6;
+  float: left;
+  height: 80%;
+  width: 100%;
+  margin-top: 10%;
+  z-index: 5;
+}
+
+
+/* Widget Body */

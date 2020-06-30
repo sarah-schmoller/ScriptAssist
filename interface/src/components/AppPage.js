@@ -123,51 +123,20 @@ const textDiv = {
   'marginLeft': '10%',
 }
 
-  const bodyStyle = {
-    color: 'white',
-    'fontWeight': 'normal',
-    'display': 'inline-block',
-    'textAlign': 'center'
-  }
-
-  const title = {
-    paddingLeft: '15px',
-    paddingTop: '12px',
-    paddingBottom: '12px',
-    'textAlign': 'left',
-    'color': '#0E012A',
-    'fontSize': '26px',
-    'fontWeight': 'bold',
-    'background-image': 'linear-gradient(to right, #ECEAF0 , white)',
-    width: '100%',
-    zIndex: 6
-  }
-
   const container = {
     'width': '1000px',
     height: '600px',
-    //margin: 'auto',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    
     margin: 'auto',
     marginTop: 'min(13vh)',
-    //marginRight: 'auto',
-    //marginBottom: '10%',
-    //left: '12%', 
-    //right: '50%',
-    //top:'-332px',
-    //'margin-bottom':'-332px',
     background: 'white',
     float: 'left',
-    
-    //overflow: 'auto',
     'border-radius': '20px',
     position: 'absolute',
     overflow:'hidden'
-    //display: 'flex'
   }
 
   const wrapper1 = {
@@ -283,29 +252,6 @@ const textDiv = {
   const buttonDiv = {
     'marginLeft': '5%',
     'overflow-y': 'scroll'
-  }
-
-  const sidebar = {
-    width: '22%',
-    backgroundColor: 'white',
-    height: '100%',
-    //float: 'left',
-    //marginTop: '60px',
-    position: 'absolute',
-    //display: 'inline-block',
-    minWidth: '200px',
-    zIndex: 1
-  }
-
-  const sidebarBorder = {
-    borderRight: '1.5px solid #E1DEE6',
-    //boxShadow: '1px 1px 3px #E1DEE6',
-    float: 'left',
-    height: '80%',
-    width: '100%',
-    marginTop: '10%',
-    zIndex: 5,
-    display: 'inline-block'
   }
 
   const textareaCharacter = {
@@ -466,14 +412,14 @@ const textDiv = {
   return (
     <body id='pageBody'>
 
-      <div id='widgetContainer' style={container}>
+      <div id='widgetContainer'>
 
-        <div id='widgetHeader'>
-          <div style={title}>ScriptAssist</div>
+        <div id='widgetHeaderDiv'>
+          <div id='widgetHeader'>ScriptAssist</div>
         </div>
 
-        <div id='widgetSidebar' style={sidebar}>
-          <div id='divider' style={sidebarBorder}>
+        <div id='widgetSidebar'>
+          <div id='divider'>
           </div>
           <div class='instructions' style={text}>
             <text id='styleSelectorText'>Choose a dialog style.</text>
