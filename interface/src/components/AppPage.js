@@ -59,65 +59,6 @@ function HomePage() {
     marginTop: '10px'
   }
 
-  const select = {
-  'marginLeft': '5%',
-  'padding': '5px 35px 5px 5px',
-  'fontSize': '16px',
-  'border': '1px solid #ccc',
-  'height': '34px',
-  //'appearance': 'none',
-  'alignItems': 'left',
-  'display': 'absolute',
-  'justifyContent': 'left',
-  color: '#5A5A5A',
-  cursor: 'pointer',
-  width: '100%',
-  'border-radius': '3px'
-}
-
-const selectDiv = {
-  position: 'absolute',
-  //'width': '80%',
-  'marginTop': '10px',
-  'marginLeft': '-5px',
-  cursor: 'pointer',
-  zIndex: 1
-}
-
-const selectDiv2 = {
-  'fontSize': '16px',
-  'border': 'none',
-  'height': '34px',
-  'alignItems': 'left',
-  'display': 'absolute',
-  'justifyContent': 'left',
-  color: '#5A5A5A',
-  width: '100%',
-  'marginTop': '5px',
-  cursor: 'pointer',
-  zIndex:1,
-  backgroundColor:'#E1DEE6'
-}
-
-const text = {
-  'marginTop': '25px',
-  'marginLeft': '25px',
-  //'width': '100%',
-  
-  //'float': 'left',
-  color: '#5A5A5A',
-  position: 'absolute'
-}
-
-const text2 = {
-  'marginTop': '115px',
-  'marginLeft': '25px',
-  //'width': '100%',
-  
-  //'float': 'left',
-  color: '#5A5A5A',
-  position: 'absolute'
-}
 
 const textDiv = {
   'marginLeft': '10%',
@@ -414,17 +355,17 @@ const textDiv = {
 
       <div id='widgetContainer'>
 
-        <div id='widgetHeaderDiv'>
-          <div id='widgetHeader'>ScriptAssist</div>
+        <div id='widgetHeader'>
+          <div id='widgetHeaderText'>ScriptAssist</div>
         </div>
 
         <div id='widgetSidebar'>
           <div id='divider'>
           </div>
-          <div class='instructions' style={text}>
+          <div class='actions' id='styleSelector'>
             <text id='styleSelectorText'>Choose a dialog style.</text>
-            <div id='styleSelectorDropdownDiv' style={selectDiv}>
-              <select id='styleSelectorDropdown' style={select}>
+            <div id='styleSelectorDropdownDiv'>
+              <select id='styleSelectorDropdown'>
                 <option selected>Shakespeare</option>
                 <option>Bronte</option>
                 <option>Fitzgerald</option>
@@ -433,9 +374,9 @@ const textDiv = {
               </select>
             </div>
           </div>
-          <div class='instructions' style={text2}>
+          <div class='actions' id='download'>
             <text id='scriptDownloadText'>Download your script.</text>
-            <form id='scriptDownloadButton'><button style={selectDiv2}>Download TXT</button></form>
+            <form><button id='scriptDownloadButton'>Download TXT</button></form>
           </div>
         </div>
 
@@ -453,10 +394,8 @@ const textDiv = {
                 <button id='autoGenButton' style={buttonStyle} onClick={() => generateResponse()}><span>Auto</span></button>
               </div>
           </div>
-
       </div>
 
-      
     </body>
   ); 
 }

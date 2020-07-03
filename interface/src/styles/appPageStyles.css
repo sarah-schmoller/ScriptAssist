@@ -25,7 +25,7 @@
 
 /* Widget Header */
 
-#widgetHeader {
+#widgetHeaderText {
   padding-left: 15px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -56,6 +56,59 @@
   width: 100%;
   margin-top: 10%;
   z-index: 5;
+}
+
+#styleSelectorDropdownDiv {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -5px;
+  cursor: pointer;
+  z-index: 1
+}
+
+#styleSelector {
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+#styleSelectorDropdown {
+  margin-left: 5%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  align-items: left;
+  display: absolute;
+  justify-content: left;
+  color: #5A5A5A;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+#download {
+  margin-top: 115px;
+  margin-left: 25px;
+}
+
+#scriptDownloadButton {
+  font-size: 16px;
+  border: none;
+  height: 34px;
+  align-items: left;
+  display: absolute;
+  justify-content: left;
+  color: #5A5A5A;
+  width: 100%;
+  margin-top: 5px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: #E1DEE6;
+}
+
+.actions {
+  color: #5A5A5A;
+  position: absolute;
 }
 
 
