@@ -20,218 +20,7 @@ const theme = {
  };
 
 
- //async function toggleHover() {
- // this.setState({hover: !this.state.hover})
- //}
-
-
-
 function HomePage() {
-  //let navigate = useNavigate(); 
-
-  /*const textBoxStyle = {
-    display: 'block',
-    color: '#000',
-    padding: '8px 16px',
-    'text-decoration': 'none',
-    'margin-left': '30px',
-    'margin-right': '30px'
-  }*/
-
-
-  const buttonStyle = {
-    color: '#5A5A5A',
-    'backgroundColor': '#E1DEE6',
-    'border':'none',
-    'marginBottom': '10px',
-    'marginLeft': '0px',
-    'fontWeight': 'normal',
-    'display': 'inline-block',
-    'align': 'center',
-    //'width': '106px',
-    'fontSize':'15px',
-    outline: '0px',
-    cursor: 'pointer',
-    boxShadow: '0px 2px 2px lightgray',
-    transition: 'ease background-color 250ms',
-    padding: '5px 15px',
-    marginRight: '10px',
-    marginTop: '10px'
-  }
-
-
-const textDiv = {
-  'marginLeft': '10%',
-}
-
-  const container = {
-    'width': '1000px',
-    height: '600px',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: 'auto',
-    marginTop: 'min(13vh)',
-    background: 'white',
-    float: 'left',
-    'border-radius': '20px',
-    position: 'absolute',
-    overflow:'hidden'
-  }
-
-  const wrapper1 = {
-
-  }
-
-  /*function MouseEnter(id) {
-    console.log(id)
-    console.log(document.getElementById(id).children[0]);
-    console.log(id);
-    document.getElementById(id).children[0].setAttribute("fill-opacity", "1.0");
-  }
-
-  function MouseLeave(id) {
-    console.log(id);
-    document.getElementById(id).children[0].setAttribute("fill-opacity", "0.75");
-  }*/
-
-  //const figure = {
-  //  opacity: hover.img.logo ? 1 : 0
-  //}
-  
-  /*styled.section`
-    &:hover img.logo {
-      opacity: 0
-    }
-  `*/
-
-  const vl = {
-    borderRight:'1px solid gray', 
-    height:'107%',
-    top:'3%',
-    bottom:'3%',
-    right:'0%',
-    position:'absolute',
-    left:'0%',
-    marginLeft:'-3px',
-    zIndex:"-1"
-  }
-
-  const vl2 = {
-    //borderRight:'1px solid gray', 
-    height:'85%',
-    top:'75px',
-    bottom:'3%',
-    left: '25%',
-    position:'absolute',
-    zIndex:"100"
-  }
-
-  const div1 = {
-    height:'80%',
-    top:'80px',
-    position:'absolute',
-    marginLeft:'-20px',
-    color: 'gray',
-    width:'25%'
-  }
-
-  const div2 = {
-    height:'85%',
-    paddingTop:'8px',
-    position:'absolute',
-    left:'19%',
-    right:'0px',
-    width:'100%',
-    color: '#5A5A5A',
-    textAlign: 'left',
-    backgroundColor: 'white',
-    'overflow-y': 'scroll',
-    zIndex:0
-  }
-
-  const instructions2 = {
-    marginTop: '15px'
-  }
-
-  const dialogBox = {
-    display: 'flex',
-    'flex-flow': 'row wrap',
-    'flex-direction': 'row',
-    width: '60%',
-    padding: '0',
-    background: '#E1DEE6',
-    'box-shadow': '0 0 20px 0 rgba(16, 16, 17, 0.1)',
-    'text-align': 'left',
-    'align':'left',
-    'margin-left': '5%',
-    transform: 'translateY(15%)',
-    height: '60px',
-    overflow: 'auto',
-    'border-radius': '10px'
-  }
-  const dialogBoxInput = {
-    display: 'flex',
-    'flex-flow': 'row wrap',
-    'flex-direction': 'row',
-    width: '70%',
-    background: '#E1DEE6',
-    'box-shadow': '0 0 20px 0 rgba(16, 16, 17, 0.1)',
-    'text-align': 'left',
-    'align':'left',
-    height: '35px',
-    overflow: 'auto',
-    border: 'none',
-    'border-radius': '0 0px 10px 10px',
-    'margin-left': '5%',
-    'paddingLeft':'5px',
-    'marginBottom': '10px',
-    color: '#0E012A'
-  }
-
-  const buttonDiv = {
-    'marginLeft': '5%',
-    'overflow-y': 'scroll'
-  }
-
-  const textareaCharacter = {
-    border: 'none',
-    marginLeft: '5%',
-    marginTop: '10px',
-    paddingLeft: '5px',
-    paddingTop: '5px',
-    backgroundColor: '#E1DEE6',
-    'border-radius': '10px 10px 0px 0px',
-    color: '#0E012A',
-    fontWeight: 600,
-    width: '70%'
-  }
-
-  const row = {
-    width: '100vw'
-  }
-
-  /*React.useEffect(() => {
-    async function test() {
-      let headers = {
-        'headers': {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': "*",
-          'Access-Control-Allow-Methods': 'GET, POST',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, x-api-key',
-          'Access-Control-Allow-Credentials': 'true'
-        }
-      }
-      let reqInstance = axios.create(headers);
-      let tester =  await reqInstance.post(`http://127.0.0.1:5000/`, 'shakespeare');
-      console.log("RESULT");
-      console.log(tester);
-    }
-    test()
-    let element = document.getElementById("dropdown15");
-    //console.log(element.options[element.selectedIndex].value)
-  });*/
 
   function generateResponse() {
     console.log("IN HERE");
@@ -333,7 +122,7 @@ const textDiv = {
   }
 
   function updateHeight(test) {
-    let table = document.getElementById("table");
+    let table = document.getElementById("dialogTurnsTable");
     let rows = table.getElementsByTagName('tr');
     for (let i = 0; i < rows.length; i++) {
       let element = rows[i].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0];
@@ -347,9 +136,7 @@ const textDiv = {
     //content[i].style.height = content[i].scrollHeight + 'px';
     }
   }
-  //const navigate = useNavigate();
 
-  //const navigate = useNavigate();
   return (
     <body id='pageBody'>
 
@@ -380,19 +167,19 @@ const textDiv = {
           </div>
         </div>
 
-        <div id='widgetBody' style={div2}>
-            <table id='dialogTurnsTable' style={instructions2}>
-              <tr class='dialogTurnRow' style={row}> 
-                <td class='dialogTurnColumn' style={row}>
-                  <input class='dialogTurnInput' style={textareaCharacter} defaultValue="Character 1:"></input>
-                  <textarea class='dialogTurnTextArea' style={dialogBoxInput} placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
+        <div id='widgetBody'>
+            <table id='dialogTurnsTable'>
+              <tr class='dialogTurnRow'> 
+                <td class='dialogTurnColumn'>
+                  <input class='dialogTurnInput' defaultValue="Character 1:"></input>
+                  <textarea class='dialogTurnTextArea' placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
                 </td>
               </tr>
             </table>
-            <div id='widgetButtonsDiv' style={buttonDiv}>
-                <button id='addTurnButton' style={buttonStyle} ><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
-                <button id='autoGenButton' style={buttonStyle} onClick={() => generateResponse()}><span>Auto</span></button>
-              </div>
+            <div id='widgetButtonsDiv'>
+              <button class='button' id='addTurnButton'><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
+              <button class='button' id='autoGenButton'><span onClick={() => generateResponse()}>Auto</span></button>
+            </div>
           </div>
       </div>
 

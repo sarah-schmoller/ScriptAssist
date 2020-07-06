@@ -111,5 +111,84 @@
   position: absolute;
 }
 
-
 /* Widget Body */
+
+#widgetBody {
+  height: 85%;
+  padding-top: 8px;
+  position: absolute;
+  left: 19%;
+  right: 0px;
+  width: 100%;
+  color: #5A5A5A;
+  text-align: left;
+  background-color: white;
+  overflow-y: scroll;
+  z-index: 0;
+}
+
+#dialogTurnsTable {
+  margin-top: 15px;
+}
+
+#widgetButtonsDiv {
+  margin-left: 5%;
+  overflow-y: scroll;
+}
+
+.dialogTurnRow {
+  width: 100vw;
+}
+
+.dialogTurnColumn {
+  width: 100vw;
+}
+
+.dialogTurnInput {
+  border: none;
+  margin-left: 5%;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  background-color: #E1DEE6;
+  border-radius: 10px 10px 0px 0px;
+  color: #0E012A;
+  font-weight: 600;
+  width: 70%;
+}
+
+.dialogTurnTextArea {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  width: 70%;
+  background: #E1DEE6;
+  box-shadow: 0 0 20px 0 rgba(16, 16, 17, 0.1);
+  text-align: left;
+  height: 35px;
+  overflow: auto;
+  border: none;
+  border-radius: 0 0px 10px 10px;
+  margin-left: 5%;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  color: #0E012A;
+}
+
+.button {
+  color: #5A5A5A;
+  background-color: #E1DEE6;
+  border: none;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  font-weight: normal;
+  display: inline-block;
+  font-size: 15px;
+  outline: 0px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px lightgray;
+  transition: ease background-color 250ms;
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
