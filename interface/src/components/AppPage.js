@@ -2,43 +2,37 @@
 import React, {
 } from 'react';
 import '../styles/appPageStyles.css';
-import axios from "axios";
+import config from './config.js';
+import NlgApiService from '../services/nlgApiService.js';
 
-function HomePage() {
+const nlgApiService = new NlgApiService(config.nlgApiBaseUrl);
 
-  function generateResponse() {
+function AppPage() {
 
-    async function test() {
+  function generateTurnText() {
 
-      let headers = {
-        'headers': {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': "*",
-          'Access-Control-Allow-Methods': 'GET, POST',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, x-api-key',
-          'Access-Control-Allow-Credentials': 'true'
-        }
-      }
+    async function getText() {
 
-      let dropdown = document.getElementById("dropdown15");
-      let reqInstance = axios.create(headers);
-
-      let table = document.getElementById("table");
+      let dropdown = document.getElementById("styleSelectorDropdown");
+      console.log(dropdown);
+      console.log(dropdown.value);
+      let table = document.getElementById("dialogTurnsTableBody");
       let rows = table.getElementsByTagName('tr');
-      let context;
 
+      let context;
       if (rows.length <= 1) {
         context = ''
       } else {
         context = rows[rows.length-2].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].value;
       }
-      let tester =  await reqInstance.post(`http://127.0.0.1:5000/`, {style: dropdown.value.toLowerCase(), context: context});
-      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].innerHTML = tester.data.response;
-      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].value = tester.data.response;
+
+      let text = await nlgApiService.getTurnText(dropdown.value.toLowerCase(), context);
+      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].innerHTML = text.data.response;
+      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].value = text.data.response;
       updateHeight();
     }
-    test();
-    
+
+    getText();
   }
 
   function createNewTurn() {
@@ -89,7 +83,7 @@ function HomePage() {
     table.appendChild(row);
   }
 
-  function updateHeight(test) {
+  function updateHeight() {
     let table = document.getElementById("dialogTurnsTableBody");
     let rows = table.getElementsByTagName('tr');
     for (let i = 0; i < rows.length; i++) {
@@ -142,7 +136,7 @@ function HomePage() {
             </table>
             <div id='widgetButtonsDiv'>
               <button class='button' id='addTurnButton'><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
-              <button class='button' id='autoGenButton'><span onClick={() => generateResponse()}>Auto</span></button>
+              <button class='button' id='autoGenButton'><span onClick={() => generateTurnText()}>Auto</span></button>
             </div>
           </div>
       </div>
@@ -151,5 +145,5 @@ function HomePage() {
   ); 
 }
 
-export default HomePage;
+export default AppPage;
 
