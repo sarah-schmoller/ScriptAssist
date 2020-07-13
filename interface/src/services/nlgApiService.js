@@ -16,11 +16,7 @@ class NlgApiService {
 
   async getTurnText(style, context) {
     let reqInstance = axios.create(this.headers);
-    console.log(this.baseUrl);
-    console.log(style);
-    console.log(context);
-    let test = await reqInstance.post(this.baseUrl, {style: style, context: context});
-    console.log(test);
+    return await reqInstance.post(this.baseUrl, {style: style, context: context});
   }
 }
 

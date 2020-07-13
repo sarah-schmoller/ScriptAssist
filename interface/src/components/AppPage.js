@@ -13,9 +13,13 @@ function AppPage() {
 
     async function getText() {
 
+      if (document.getElementById('loader').style.visibility === 'visible') {
+        return;
+      }
+
+      document.getElementById('loader').style.visibility = 'visible';
+
       let dropdown = document.getElementById("styleSelectorDropdown");
-      console.log(dropdown);
-      console.log(dropdown.value);
       let table = document.getElementById("dialogTurnsTableBody");
       let rows = table.getElementsByTagName('tr');
 
@@ -27,8 +31,9 @@ function AppPage() {
       }
 
       let text = await nlgApiService.getTurnText(dropdown.value.toLowerCase(), context);
-      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].innerHTML = text.data.response;
-      rows[rows.length-1].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].value = text.data.response;
+      document.getElementById('loader').style.visibility = 'hidden';
+      rows[rows.length-2].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].innerHTML = text.data.response;
+      rows[rows.length-2].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0].value = text.data.response;
       updateHeight();
     }
 
@@ -36,6 +41,7 @@ function AppPage() {
   }
 
   function createNewTurn() {
+    
     let table = document.getElementById("dialogTurnsTableBody");
     let rows = table.getElementsByTagName('tr');
     let rowCount = rows.length;
@@ -86,7 +92,7 @@ function AppPage() {
   function updateHeight() {
     let table = document.getElementById("dialogTurnsTableBody");
     let rows = table.getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 0; i < rows.length-1; i++) {
       let element = rows[i].getElementsByTagName('td')[0].getElementsByTagName('textarea')[0];
       element.style.setProperty('height', element.scrollHeight + 'px');
       element.style.setProperty('max-height', element.scrollHeight + 'px');
@@ -124,21 +130,28 @@ function AppPage() {
         </div>
 
         <div id='widgetBody'>
-            <table id='dialogTurnsTable'>
-              <tbody id= 'dialogTurnsTableBody'>
-                <tr class='dialogTurnRow'> 
-                  <td class='dialogTurnColumn'>
-                    <input class='dialogTurnInput' defaultValue="Character 1:"></input>
-                    <textarea class='dialogTurnTextArea' placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div id='widgetButtonsDiv'>
-              <button class='button' id='addTurnButton'><span onClick={() => createNewTurn()}>+ Add Turn</span></button>
-              <button class='button' id='autoGenButton'><span onClick={() => generateTurnText()}>Auto</span></button>
-            </div>
-          </div>
+          <table id='dialogTurnsTable'>
+            <tbody id= 'dialogTurnsTableBody'>
+              <tr class='dialogTurnRow'> 
+                <td class='dialogTurnColumn'>
+                  <input class='dialogTurnInput' defaultValue="Character 1:"></input>
+                  <textarea class='dialogTurnTextArea' placeholder="Click here to write your first turn of dialog, or choose 'Auto' to autogenerate a turn." onInput={(e) => updateHeight(e)}></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div id='widgetButtonsDiv'>
+                    <button class='button' id='addTurnButton' onClick={() => createNewTurn()}><span>+ Add Turn</span></button>
+                    <button class='button' id='autoGenButton' onClick={() => generateTurnText()}><span>Auto</span></button>
+                    <div id='loader'></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
       </div>
 
     </div>
