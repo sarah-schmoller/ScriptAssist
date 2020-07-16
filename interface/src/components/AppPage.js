@@ -45,6 +45,7 @@ function AppPage() {
     let table = document.getElementById("dialogTurnsTableBody");
     let rows = table.getElementsByTagName('tr');
     let rowCount = rows.length;
+
     let characterName;
     if (rowCount <= 1) {
       characterName = 'Character 2:';
@@ -55,33 +56,42 @@ function AppPage() {
     let input = document.createElement("input");
     let row = document.createElement('tr');
     let column = document.createElement('td');
-    input.setAttribute('style', `border: none;
-    margin-left: 5%;
-    padding-left: 5px;
-    padding-top: 5px;
-    background-color: #E1DEE6;
-    border-radius: 10px 10px 0px 0px;
-    color: #0E012A;
-    font-weight: 600;
-    width: 70%;`);
+
+    input.setAttribute (
+      'style', 
+      `border: none;
+      margin-left: 5%;
+      padding-left: 5px;
+      padding-top: 5px;
+      background-color: #E1DEE6;
+      border-radius: 10px 10px 0px 0px;
+      color: #0E012A;
+      font-weight: 600;
+      width: 70%;`
+    );
+
     input.setAttribute('value', characterName);
+
     let textarea = document.createElement("textarea");
-    textarea.setAttribute('style', `display: flex;
-    flex-flow: row wrap;
-    flex-direction: row;
-    width: 70%;
-    background: #E1DEE6;
-    box-shadow: 0 0 20px 0 rgba(16, 16, 17, 0.1);
-    text-align: left;
-    align: left;
-    height: 35px;
-    overflow: auto;
-    border: none;
-    border-radius: 0 0px 10px 10px;
-    margin-left: 5%;
-    padding-left: 5px;
-    margin-bottom: 10px;
-    color: #0E012A;`);
+    textarea.setAttribute (
+      'style', 
+      `display: flex;
+      flex-flow: row wrap;
+      flex-direction: row;
+      width: 70%;
+      background: #E1DEE6;
+      box-shadow: 0 0 20px 0 rgba(16, 16, 17, 0.1);
+      text-align: left;
+      align: left;
+      height: 35px;
+      overflow: auto;
+      border: none;
+      border-radius: 0 0px 10px 10px;
+      margin-left: 5%;
+      padding-left: 5px;
+      margin-bottom: 10px;
+      color: #0E012A;`
+    );
 
     column.appendChild(input);
     column.appendChild(textarea);
