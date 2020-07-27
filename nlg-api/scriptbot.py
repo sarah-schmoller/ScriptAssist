@@ -22,7 +22,6 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['POST'])
 def main():
-    print("HERE")
     style = flask.request.json["style"];
     previous = flask.request.json["context"];
     if not os.path.exists('./models'):

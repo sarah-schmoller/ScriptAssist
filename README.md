@@ -5,9 +5,9 @@ An authorial assist tool developed for Xandra, Inc., to assist Conversation Desi
 
 The ScriptAssist tool manipulates GPT-2 into behaving like a chatbot by appending turns of dialog to the model's context. A block of boilerplate dialog from the selected author is included initially to teach the model to write in the desired style, and additional turns provided by the user are added as they are written. Given this context, GPT-2 will generate lines of dialog appropriate to any prior turns authored in the tool, in the voice of the writer chosen by the user.
 
-The nlg-api does the work of initializing and running GPT-2 using ```tensorflow``` and ```gpt_2_simple```. Context files are located in ```/nlg-api/contexts```. If a model has not been added manually, 117M is downloaded by default into the ```/nlg-api/models``` directory. This is the smallest GPT-2 model, and was selected to keep turn generation time to a minimum for ease of use, with the trade-off that the text produced may be less polished than it might be with a larger version. The 117M files may be replaced within ```/nlg-api/models``` if a larger model is preferred.
+The nlg-api does the work of initializing and running GPT-2 using ```tensorflow``` and ```gpt_2_simple```. Context files are located in ```/nlg-api/contexts```. If a model has not been added manually, 117M is downloaded by default into the ```/nlg-api/models``` directory. This is the smallest GPT-2 model and was selected to keep turn generation time to a minimum, with the trade-off that the text produced will be less polished than it might be with a larger version. The 117M files may be replaced within ```/nlg-api/models``` if a larger model is preferred.
 
-Once the nlg-api is running, it can be invoked by the React frontend included in ```/interface```. Within the interface, users may write and edit their own turns of dialog, add additional turns, and auto-fill turns in their selected style using GPT-2. The system will remember character names input by the user and auto-fill them in alternating turns. The full script may be downloaded as a .txt file when editing is complete.
+Once the nlg-api is running, it can be invoked by the React frontend included in ```/interface```. Within the interface, users may write and edit their own turns of dialog, add additional turns, and auto-generate turns in their selected style. The system will remember character names input by the user and auto-fill them in alternating turns. The full script may be downloaded as a .txt file when editing is complete.
 
 
 ## Usage
@@ -22,7 +22,7 @@ ScriptAssist is not currently hosted online, but it may be used locally. This re
 
 [4] Open a second terminal, and navigate to the ```/interface``` directory in the ScriptAssist repo.
 
-[5] Run ```npm i``` from the ```/interface``` directory to install the required javascript dependencies.
+[5] Run ```npm i``` from the ```/interface``` directory to install the required Javascript dependencies.
 
 [6] Run ```npm start``` from the ```/interface``` directory to start the React app. The application should open in your browser.
 
